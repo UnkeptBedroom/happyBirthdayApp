@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,9 +31,15 @@ class MainActivity : ComponentActivity() {
 //Composable functions MUST be named using Pascal case. Pascal case is the opposite to camel case - you have to start the first word, and every word thereafter, with a capital letter
 //Composable functions MUST be a noun. Can't be anything else.
 @Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Text (
-        text = message
+        text = message,
+        fontSize = 50.sp,
+        lineHeight = 50.sp
+    )
+    Text (
+        text = from,
+        fontSize = 16.sp
     )
 }
 
@@ -40,6 +47,6 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        GreetingText(message = "Happy Birthday Da Boss!")
+        GreetingText(message = "Happy Birthday Da Boss!", from = "Your mom")
     }
 }
