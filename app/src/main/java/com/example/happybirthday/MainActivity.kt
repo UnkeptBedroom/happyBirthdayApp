@@ -20,28 +20,26 @@ class MainActivity : ComponentActivity() {
         setContent {
             HappyBirthdayTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
                 }
             }
         }
     }
 }
 
+//Composable functions MUST be named using Pascal case. Pascal case is the opposite to camel case - you have to start the first word, and every word thereafter, with a capital letter
+//Composable functions MUST be a noun. Can't be anything else.
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun GreetingText(message: String, modifier: Modifier = Modifier) {
+    Text (
+        text = message
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        Greeting("Android")
+        GreetingText(message = "Happy Birthday Da Boss!")
     }
 }
